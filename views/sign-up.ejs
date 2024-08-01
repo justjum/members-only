@@ -19,6 +19,11 @@
             <button class="btn btn-primary" type="submit">Sign Up</button>
         </div>
     </form>
+    <% if (locals.errors) { %>
+        <% for (let x=0; x<errors.length; x++) { %>
+            <p><%=errors[x].msg%></p>
+        <% } %>
+    <% } %>
 
 
 <%- include('./partials/footer')  %>

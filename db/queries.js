@@ -5,7 +5,18 @@ async function createUser(username, f_name, l_name, password) {
     console.log(`User ${username} Added`)
 }
 
+async function createMessage(username, headline, message) {
+    await pool.query('INSERT INTO messages(user_id, headline, message) VALUES ((SELECT id FROM users WHERE username = $1), $2, $3)', [username, headline, message])
+}
+
+async function getUser(username) {
+    const { rows } = await pool.query("SELECT * FROM users WHERE username = ($1)", [username]);
+    return rows;
+}
+
 
 module.exports = ( {
     createUser,
+    createMessage,
+    getUser
 })
