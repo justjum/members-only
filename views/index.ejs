@@ -18,12 +18,12 @@
       </form>
     <%}%>
     <hr>
-    <div class="container">
+    <div class="container" style="">
       <% if (locals.user) {%>
         
         <% if (locals.messages.length > 0) { %>
           <% for (let x=0; x< locals.messages.length; x++) { %>
-            <div class="card" style="max-width: 50rem;">
+            <div class="card" style="max-width: 50rem; margin: 10px;">
               <div class="card-body">
                 <h5 class="card-title"><%= locals.messages[x].headline %></h5>
                 <p class="card-text"><%= locals.messages[x].message %></p>

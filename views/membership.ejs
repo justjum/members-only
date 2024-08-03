@@ -1,0 +1,23 @@
+<%- include('./partials/header')  %>
+<%- include('./partials/navbar')  %>
+<div class="container">
+    <h3><%= subtitle %></h3>
+    <% if (locals.user) { %>
+        <form action="" method="POST">
+            <div class="form-group">
+                <input type="text" class="form-control" placeholder="Secret code...it's just down there." name="passcode">
+            </div>
+            <div class="form-group">
+                <button class="btn btn-primary">Submit Code</button>
+            </div>
+        </form>
+        <p>Secret code is 'secretcode'</p>
+    <% } else { %>
+        <p><strong>Please <a href="/">log in</a> to access this area.</strong></p>
+    <% } %>
+    
+</div>
+
+
+
+<%- include('./partials/footer')  %>

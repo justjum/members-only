@@ -96,3 +96,17 @@ exports.createMessagePost = [
     res.redirect('/')
   }
 ]
+
+exports.membershipGet = async function (req, res, next) {
+  res.render('membership', {
+    title: 'Members Only',
+    subtitle: 'Become a Member',
+    user: req.user,
+
+  })
+}
+
+
+exports.membershipPost = [
+
+]
