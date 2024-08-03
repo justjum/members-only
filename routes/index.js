@@ -13,6 +13,8 @@ router.post('/sign-up', controller.signUpPost);
 
 router.post('/log-in', controller.logInPost);
 
+router.get('/create-message', controller.createMessageGet);
 
+router.post('/create-message', controller.createMessagePost);
 
 module.exports = router;

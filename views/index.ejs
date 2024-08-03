@@ -1,21 +1,12 @@
 <%- include('./partials/header')  %>
-  <div>
-    <h1><%= title %></h1>
-    <% if(locals.user) { %>
-      <a href="/membership">Upgrade</a>
-      <a href="/log-out">Log Out</a>
-    <% } else { %>
-    <a href="/log-in">Log In</a>
-    <a href="/sign-up">Sign Up</a>
-    <% } %> 
-    <hr>
-  </div>
+<%- include('./partials/navbar') %>
   <div class="content container">
     <% if (locals.user) {%>
       <h3>Welcome back <%= user.f_name %>!</h3>
       <p><%= locals.user.member ? '': 'Upgrade your membership to see message authors' %></p>
+      <a href="/create-message"><button class="btn btn-primary">Post Message</button></a>
     <% } else { %>
-      <h3>Please log in</h3>
+      <h3><%= subtitle %></h3>
       <form action="/log-in" method="POST">
         <div class="form-group">
           <label for="username"></label>
@@ -29,8 +20,17 @@
     <hr>
     <div class="container">
       <% if (locals.user) {%>
-        <% if (locals.messages) { %>
-      
+        
+        <% if (locals.messages.length > 0) { %>
+          <% for (let x=0; x< locals.messages.length; x++) { %>
+            <div class="card" style="max-width: 50rem;">
+              <div class="card-body">
+                <h5 class="card-title"><%= locals.messages[x].headline %></h5>
+                <p class="card-text"><%= locals.messages[x].message %></p>
+                <p class="card-text" style="text-align: center;"><strong><%= locals.user.is_member ? locals.messages[x].user: 'Anonymous' %></strong></p>
+              </div>
+            </div>
+          <% } %>
         <% } else { %>
         <p><strong>No messages posted.</strong></p>
         <% } %>

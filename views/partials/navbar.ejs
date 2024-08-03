@@ -1,0 +1,10 @@
+<div>
+    <h1><%= title %></h1>
+    <% if(locals.user) { %>
+      <a href="/membership">Upgrade</a>
+      <a href="/log-out">Log Out</a>
+    <% } else { %>
+    <a href="/sign-up">Sign Up</a>
+    <% } %> 
+    <hr>
+</div>

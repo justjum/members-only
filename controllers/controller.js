@@ -6,10 +6,13 @@ const bcrypt = require('bcryptjs');
 const { body, validationResult } = require('express-validator');
 
 /* GET home page. */
-exports.indexGet = function(req, res, next) {
+exports.indexGet = async function(req, res, next) {
+  const messages = await db.getMessages();
     res.render('index', { 
       title: 'Members Only',
+      subtitle: 'Login Form',
       user: req.user,
+      messages: messages
      });
   };
   
@@ -44,9 +47,7 @@ exports.signUpPost = [
       if(value != req.body.password) {
         throw new Error('Passwords must be identical')
       }
-    })
-
-,
+    }),
 
   async function(req, res, next) {
     const errors = validationResult(req);
@@ -80,3 +81,18 @@ exports.logInPost =
       successRedirect: "/",
       failureRedirect: "/"
     })
+
+exports.createMessageGet = async function (req, res, next) {
+  res.render('message-form', {
+    title: 'Members Only',
+    subtitle: 'Post to Message Board',
+    user: req.user,
+  })
+}
+
+exports.createMessagePost = [
+  async function (req, res, next) {
+    await db.createMessage(req.user.username, req.body.headline, req.body.message)
+    res.redirect('/')
+  }
+]

@@ -14,9 +14,15 @@ async function getUser(username) {
     return rows;
 }
 
+async function getMessages() {
+    const { rows } = await pool.query("SELECT M.*, U.f_name as user FROM messages M INNER JOIN users U ON U.id = M.user_id")
+    return rows;
+}
+
 
 module.exports = ( {
     createUser,
     createMessage,
-    getUser
+    getUser,
+    getMessages,
 })
