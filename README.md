@@ -20,5 +20,5 @@
   - Ability to Delete messages unlocked
 
 ## Credits
-- [Passport JS]((https://www.passportjs.org/))
-- [BCrypt JS](https://www.npmjs.com/package/bcryptjs))
+- [Passport JS](https://www.passportjs.org/)
+- [BCrypt JS](https://www.npmjs.com/package/bcryptjs)
