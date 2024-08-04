@@ -2,9 +2,9 @@
 
 **Status:** Complete
 
-**Live Demo:** [Members Only](https://shopping-cart-nu-lac.vercel.app/shop)
+**Live Demo:** [Members Only](https://jum-members-only.adaptable.app/)
 
-**Description:** A prviate message board app built as a project in The Odin Project's (TOP) Node.JS Course [Link](https://www.theodinproject.com/lessons/node-path-react-new-shopping-cart)
+**Description:** A prviate message board app built as a project in The Odin Project's (TOP) Node.JS Course [Link](https://www.theodinproject.com/lessons/node-path-nodejs-members-only)
 
 **Language/Frameworks:** Node, Express(EJS), PostgreSQL, 
 
