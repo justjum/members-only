@@ -22,3 +22,4 @@
 ## Credits
 - [Passport JS](https://www.passportjs.org/)
 - [BCrypt JS](https://www.npmjs.com/package/bcryptjs)
+- [Bootswatch (Bootstrap Theme)](https://bootswatch.com/journal/)
