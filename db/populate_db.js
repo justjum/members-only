@@ -46,11 +46,11 @@ const SQLDATA = `
 
     INSERT INTO messages (user_id, headline, message, date) 
     VALUES ((SELECT id FROM users WHERE f_name = 'Polly'), 'The First Message', 'I hearby post the first message to Members Only.  I''ve just realised that I might want to sort these descending.', '03/05/24'),
-    ((SELECT id FROM users WHERE f_name = 'Gary'), 'The Second Message', 'My name''s Gary and I''m golly glad to be here. ', '04/06/24'),
-    ((SELECT id FROM users WHERE f_name = 'Tim'), 'These headlines are a bit predictable', 'Bird, bird.  Bird is the word.', '13/01/24'),
-    ((SELECT id FROM users WHERE f_name = 'Polly'), 'Headline', 'Message. Inserted Here.', '18/02/24'),
-    ((SELECT id FROM users WHERE f_name = 'Gary'), 'Roly polie Ollie', 'Roly polie Ollie got golly jolly until Interpol-y roly polied Ollie.. ', '04/04/24'),
-    ((SELECT id FROM users WHERE f_name = 'Tim'), 'Tweet Tweet', 'Sweet tweet, queet, meet. Deep feet meet wheat.', '13/01/24');`
+    ((SELECT id FROM users WHERE f_name = 'Gary'), 'The Second Message', 'My name''s Gary and I''m golly glad to be here. ', '2024-06-04'),
+    ((SELECT id FROM users WHERE f_name = 'Tim'), 'These headlines are a bit predictable', 'Bird, bird.  Bird is the word.', '2024-01-13'),
+    ((SELECT id FROM users WHERE f_name = 'Polly'), 'Headline', 'Message. Inserted Here.', '2024-01-13'),
+    ((SELECT id FROM users WHERE f_name = 'Gary'), 'Roly polie Ollie', 'Roly polie Ollie got golly jolly until Interpol-y roly polied Ollie.. ', '2024-01-13'),
+    ((SELECT id FROM users WHERE f_name = 'Tim'), 'Tweet Tweet', 'Sweet tweet, queet, meet. Deep feet meet wheat.', '2024-01-13');`
 
   ;
 
@@ -63,6 +63,7 @@ const SQLDATA = `
       connectionString: argv[2]==='production' ? process.env.PRODCONNECT : process.env.LOCALCONNECT
     });
     await client.connect();
+    console.log('Connected')
     await client.query(SQLTABLES);
     await client.query(SQLDATA);
     await client.end();

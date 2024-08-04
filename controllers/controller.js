@@ -9,6 +9,15 @@ const { DateTime } = require('luxon');
 /* GET home page. */
 exports.indexGet = async function(req, res, next) {
   const messages = await db.getMessages();
+  messages.sort((a,b)=> {
+    if (a.date > b.date) {
+      return -1
+    } else if (b.date > a.date) {
+      return 1
+    } else {
+      return 0
+    }
+  })
     res.render('index', { 
       title: 'Members Only',
       subtitle: 'Login Form',
