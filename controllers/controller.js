@@ -4,6 +4,7 @@ const db = require('../db/queries');
 const passport = require('passport');
 const bcrypt = require('bcryptjs');
 const { body, validationResult } = require('express-validator');
+const { DateTime } = require('luxon');
 
 /* GET home page. */
 exports.indexGet = async function(req, res, next) {
@@ -92,7 +93,7 @@ exports.createMessageGet = async function (req, res, next) {
 
 exports.createMessagePost = [
   async function (req, res, next) {
-    await db.createMessage(req.user.username, req.body.headline, req.body.message)
+    await db.createMessage(req.user.username, req.body.headline, req.body.message, DateTime.now().toFormat('dd-MM-yyyy'))
     res.redirect('/')
   }
 ]
@@ -108,5 +109,38 @@ exports.membershipGet = async function (req, res, next) {
 
 
 exports.membershipPost = [
+  body('passcode', `Ah ah ah. That's not the secret Code.`)
+    .isIn('secretcode'),
 
+  async function (req, res, next) {
+    const errors = validationResult(req);
+    const admin = req.body.isAdmin == 'on' ? true:false;
+    if (!errors.isEmpty()) {
+      res.render('membership', {
+        title: 'Members Only',
+        subtitle: 'Become a Member',
+        user: req.user,
+        errors: errors.array()
+      })
+    } else {
+      db.upgradeUser(req.user, admin);
+      res.redirect('/');
+    }
+  }
 ]
+
+exports.deleteMessageGet = async function (req, res, next) {
+  const message = await db.getMessage(req.query.message)
+  console.log(message)
+  res.render('deleteMessage', {
+    title: 'Members Only',
+    subtitle: 'Delete Message',
+    message: message,
+    user: req.user
+  })
+}
+
+exports.deleteMessagePost = async function (req, res, next) {
+  await db.deleteMessage(req.body.message);
+  res.redirect('/')
+}

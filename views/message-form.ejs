@@ -4,13 +4,13 @@
         <h3><%= subtitle  %></h3>
         <% if (locals.user) { %>
             <form action="" method="POST">
-                <div class="form-group">
+                <div class="mb-3">
                     <label for="headline"></label>
                     <input type="text" class="form-control" name="headline" placeholder="Message Title">
                     <label for="message"></label>
                     <textarea name="message" id="message" class="form-control" placeholder="Type message here..."></textarea>
                 </div>
-                <div class="form-group">
+                <div class="mb-3">
                     <button class="btn btn-primary" type="submit">Submit</button>
                 </div>
             </form>

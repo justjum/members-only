@@ -4,10 +4,14 @@
     <h3><%= subtitle %></h3>
     <% if (locals.user) { %>
         <form action="" method="POST">
-            <div class="form-group">
-                <input type="text" class="form-control" placeholder="Secret code...it's just down there." name="passcode">
+            <div class="mb-3">
+                <input type="text" class="form-control" placeholder="Secret code...it's just down there." name="passcode">              
             </div>
-            <div class="form-group">
+            <div class="mb-3 form-check form-switch">
+                <input type="checkbox" name="isAdmin" class="form-check-input">
+                <label class="form-check-label form-label" for="isAdmin">Add admin privileges?</label>
+            </div>
+            <div class="mb-3">
                 <button class="btn btn-primary">Submit Code</button>
             </div>
         </form>
@@ -15,7 +19,11 @@
     <% } else { %>
         <p><strong>Please <a href="/">log in</a> to access this area.</strong></p>
     <% } %>
-    
+    <% if (locals.errors) { %>
+        <% for (let x=0; x<errors.length; x++) {%>
+            <p class="error"><%= errors[x].msg  %></p>
+        <% } %>
+    <% } %>
 </div>
 
 

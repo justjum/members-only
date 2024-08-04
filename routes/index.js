@@ -21,4 +21,8 @@ router.get('/membership', controller.membershipGet);
 
 router.post('/membership', controller.membershipPost);
 
+router.get('/delete-message', controller.deleteMessageGet);
+
+router.post('/delete-message', controller.deleteMessagePost);
+
 module.exports = router;
