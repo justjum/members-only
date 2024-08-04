@@ -3,7 +3,7 @@
   <div class="content container">
     <% if (locals.user) {%>
       <h3>Welcome back <%= user.f_name %>!</h3>
-      <p><%= locals.user.member ? '': 'Upgrade your membership to see message authors' %></p>
+      <p><%= locals.user.is_member ? '': 'Upgrade your membership to see message authors' %></p>
       <a href="/create-message"><button class="btn btn-primary">Post Message</button></a>
     <% } else { %>
       <h3><%= subtitle %></h3>

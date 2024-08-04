@@ -42,3 +42,5 @@ module.exports = ( {
     deleteMessage,
     upgradeUser
 })
+
+//$2a$10$txh/nLkBIXi4aphlgn7UouFKEN2zYl7qxW5J7Ida/zWXThvWJgJ7m

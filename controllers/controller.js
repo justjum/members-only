@@ -42,7 +42,7 @@ exports.signUpPost = [
       }
     }),
   body("password", "Password must be more than five characters")
-    .isLength({min:1}),
+    .isLength({min:5}),
   body("confirm-password")
     .custom(async (value, { req }) => {
       if(value != req.body.password) {
