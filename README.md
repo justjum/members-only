@@ -4,7 +4,7 @@
 
 **Live Demo:** [Members Only](https://jum-members-only.adaptable.app/)
 
-**Description:** A prviate message board app built as a project in The Odin Project's (TOP) Node.JS Course [Link](https://www.theodinproject.com/lessons/node-path-nodejs-members-only)
+**Description:** A private message board app built as a project in The Odin Project's (TOP) Node.JS Course [Link](https://www.theodinproject.com/lessons/node-path-nodejs-members-only)
 
 **Language/Frameworks:** Node, Express(EJS), PostgreSQL, 
 
