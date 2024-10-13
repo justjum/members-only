@@ -111,7 +111,7 @@ exports.createMessagePost = [
       req.user.username,
       req.body.headline,
       req.body.message,
-      DateTime.now().toFormat("dd-MM-yyyy")
+      DateTime.now()
     );
     res.redirect("/");
   },
